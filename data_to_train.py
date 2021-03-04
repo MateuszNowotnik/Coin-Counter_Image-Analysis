@@ -3,17 +3,15 @@ import sys
 import os
 
 
-def main():
-    coin = "tail/"
+class PopulateTrainData():
+    def __init__(self, coin_path):
+        self.coin = coin_path
 
-    in_path = "img/test/" + coin
-    out_path = "img/train/" + coin
-    only_files = [f for f in os.listdir(in_path) if os.path.isfile(os.path.join(in_path, f))]
+    def populate(self):
+        in_path = "img/test/" + self.coin
+        out_path = "img/train/" + self.coin
+        only_files = [f for f in os.listdir(in_path) if os.path.isfile(os.path.join(in_path, f))]
 
-    for i in range(len(only_files)):
-        print(only_files[i])
-        subprocess.call([sys.executable or 'python', 'coin_extraction.py', '-i', in_path + only_files[i], '-o', out_path])
-
-
-if __name__ == '__main__':
-    main()
+        for i in range(len(only_files)):
+            print(only_files[i])
+            subprocess.call([sys.executable or 'python', 'coin_extraction.py', '-i', in_path + only_files[i], '-o', out_path])

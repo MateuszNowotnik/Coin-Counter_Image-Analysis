@@ -16,7 +16,8 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
-        self.model_path = "coins.model"
+        # self.model_path = "coins.model"
+        self.model_path = "yolov5_best.pt"
         self.image_path = ""
         self.coins_sum = 0.0
         self.values = []
